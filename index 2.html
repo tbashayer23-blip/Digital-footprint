@@ -1,0 +1,167 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>المحققة الرقمية | بشاير الحربي</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:linear-gradient(145deg,#fff9f1,#eef9f7);color:#263238;min-height:100vh}
+.wrap{max-width:920px;margin:auto;padding:18px}.card,.hero{background:#fff;border-radius:26px;padding:24px;margin:15px 0;box-shadow:0 12px 34px #00000012}.hero{text-align:center}
+.teacher{font-weight:800;color:#176b68;font-size:17px;margin-bottom:12px}.tag{display:inline-block;background:#e5f5f2;color:#176b68;padding:8px 14px;border-radius:99px;font-weight:700}
+h1{font-size:31px;margin:12px 0}h2{color:#176b68}.lead{line-height:1.9;color:#607d8b}.modes,.two,.options{display:grid;gap:13px}.modes{grid-template-columns:repeat(3,1fr)}.two,.options{grid-template-columns:repeat(2,1fr)}
+.mode,.info,.opt{border:2px solid #e8eeec;border-radius:18px;background:#fff;padding:17px;cursor:pointer}.mode{text-align:center}.mode:hover,.mode.sel{border-color:#45a39d;background:#effaf8}
+.mode b{display:block;margin:8px}.emoji{font-size:34px}.info{cursor:default;line-height:1.8}.info h3{color:#176b68;margin:2px 0 8px}
+.rule{background:#fff7e6;border:1px solid #f2d59b;border-radius:17px;padding:16px;line-height:1.9;margin:15px 0}.equation{text-align:center;font-size:22px;font-weight:800;padding:18px;background:#f1faf8;border-radius:18px;margin:15px 0}
+.btn{border:0;border-radius:15px;padding:14px 22px;font-size:17px;font-weight:800;cursor:pointer;background:#176b68;color:white}.center{text-align:center;margin-top:18px}.hide{display:none}
+.case{background:#f8fbfb;border-radius:18px;padding:18px;margin:10px 0}.q{font-size:20px;font-weight:800;line-height:1.8}.opt{font-size:16px}.opt.ok{background:#eafaf3;border-color:#38b982}.opt.bad{background:#fff1f1;border-color:#ee7c7c}.feedback{min-height:45px;margin-top:12px;font-weight:700;line-height:1.7}
+.progress{height:11px;background:#edf1f0;border-radius:20px;overflow:hidden}.bar{height:100%;background:#45a39d;width:0;transition:.3s}.score{text-align:center}.score .num{font-size:42px;font-weight:900;color:#176b68}
+.speak{background:#e9f6f4;color:#176b68;border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}.kinetic{border:2px dashed #45a39d;background:#f4fcfa}
+.miniVideo{border:2px solid #d9eeea;border-radius:22px;overflow:hidden;background:#f8fcfb;margin-top:16px}
+.videoScreen{min-height:210px;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;background:linear-gradient(145deg,#eaf8f5,#fff8ed)}
+.videoScreen .big{font-size:48px}.videoScreen h3{font-size:23px;color:#176b68;margin:8px}.videoScreen p{line-height:1.9;margin:4px}
+.videoControls{display:flex;gap:10px;justify-content:center;padding:12px;flex-wrap:wrap}
+.dragGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.dropzone{min-height:130px;border:2px dashed #8abdb8;border-radius:18px;padding:12px;background:#fbfefd}.dropzone h4{margin:0 0 8px;color:#176b68}
+.dragItem{padding:12px;margin:8px 0;background:white;border:2px solid #e4ecea;border-radius:14px;cursor:grab;font-weight:700}.dragItem.done{opacity:.55;cursor:default}.kinFeedback{font-weight:800;text-align:center;min-height:28px;margin-top:10px}
+@media(max-width:650px){.dragGrid{grid-template-columns:1fr}}
+@media(max-width:650px){.modes,.two,.options{grid-template-columns:1fr}h1{font-size:26px}}
+
+.audioStory{margin-top:16px;border:2px solid #d9eeea;border-radius:22px;background:linear-gradient(145deg,#f5fcfa,#fff9ef);padding:18px}
+.audioHead{text-align:center}.audioWave{font-size:34px;letter-spacing:5px;animation:pulse 1.1s infinite alternate}
+@keyframes pulse{from{opacity:.35;transform:scale(.96)}to{opacity:1;transform:scale(1.04)}}
+.audioStatus{min-height:58px;text-align:center;line-height:1.8;margin:12px 0;color:#345}
+.audioBtns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.storyQuestion{margin-top:14px;padding:14px;border-radius:16px;background:#fff;border:2px solid #e5efed}
+.storyChoices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.storyChoice{border:2px solid #cfe4e1;background:white;border-radius:14px;padding:11px;font-weight:800;cursor:pointer}
+.tapCards{display:grid;gap:10px;margin:14px 0}.tapCard{border:2px solid #dfeae8;background:#fff;border-radius:15px;padding:13px;font-weight:800;cursor:pointer}
+.tapCard.selected{outline:4px solid #f2c879;background:#fffaf0}.tapCard.done{opacity:.45;pointer-events:none}
+.catGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.catBtn{min-height:80px;border:2px dashed #7fb7b1;border-radius:16px;background:#f8fdfc;padding:10px;font-weight:800;cursor:pointer}
+.wrong{animation:shake .3s}@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+@media(max-width:650px){.storyChoices,.catGrid{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<section class="hero"><div class="teacher">إعداد المعلمة: بشاير الحربي</div><span class="tag">الوحدة الثانية • البصمة الرقمية</span><h1>👣 المحققة الرقمية: من ترك هذا الأثر؟</h1><p class="lead">اختاري طريقتك في التعلم، افهمي الأدلة، ثم افتحي غرفة التحقيق.</p></section>
+
+<section class="card" id="choose"><h2>كيف تفضلين أن تتعلمي؟</h2><p class="lead">اختاري نمطًا واحدًا. المحتوى العلمي نفسه، لكن طريقة عرضه ستتغير.</p>
+<div class="modes">
+<div class="mode" data-mode="visual"><div class="emoji">👁️</div><b>بصري</b><span>بطاقات وألوان وربط بصري</span></div>
+<div class="mode" data-mode="audio"><div class="emoji">🔊</div><b>سمعي</b><span>شرح مع زر للاستماع</span></div>
+<div class="mode" data-mode="kinetic"><div class="emoji">🖐️</div><b>حركي / تفاعلي</b><span>تعلم بالمواقف والاختيار</span></div>
+</div><div class="center"><button class="btn" id="enter" disabled>ابدئي التعلم ←</button></div></section>
+
+<section class="card hide" id="lesson">
+<h2>👣 ما البصمة الرقمية؟</h2>
+<div class="info"><h3>تعريف البصمة الرقمية</h3>هي سلسلة من البيانات التي تتركينها عند استخدام التقنيات الرقمية والإنترنت ومنصات التواصل.</div>
+
+<h2 style="margin-top:24px">نوعا البصمة الرقمية</h2>
+<div class="two">
+<div class="info"><h3>🟢 بصمة نشطة</h3>بيانات تتركينها <b>بإرادتك</b>، مثل المنشورات والرسائل والنماذج التي تعبئينها عبر الإنترنت.</div>
+<div class="info"><h3>⚪ بصمة غير نشطة</h3>بيانات تتركينها <b>دون قصد أو دون أن تعرفي</b>، مثل بعض بيانات الموقع وملفات تعريف الارتباط.</div>
+</div>
+
+<h2 style="margin-top:24px">🔍 افهمي الفرق في دقيقة</h2>
+<div class="equation">👣 أثر + 👣 أثر + 👣 أثر + 👣 أثر ⟵ تتراكم الآثار لتكوّن بصمتك الرقمية</div>
+<div class="two">
+<div class="info"><h3>👀 أثر مقصود ومرئي</h3>مثل البريد الإلكتروني، النصوص، الصور، المنشورات، التعليقات والإعجابات.</div>
+<div class="info"><h3>🌫️ أثر غير مقصود وغير مرئي</h3>مثل سجلات زيارات المواقع وعمليات البحث والسجلات المتعلقة بتحركات المستخدم عبر الإنترنت.</div>
+</div>
+<div class="rule"><b>مفتاح التمييز:</b><br>بإرادتي = بصمة نشطة 🟢 • دون قصد = بصمة غير نشطة ⚪<br>أفعله وأراه = أثر مقصود ومرئي 👀 • يُسجّل في الخلفية = أثر غير مقصود وغير مرئي 🌫️</div>
+
+<div id="modeExtra"></div>
+<div class="center"><button class="btn" id="investigate">🕵️‍♀️ ادخلي غرفة التحقيق</button></div>
+</section>
+
+<section class="card hide" id="quiz"><span class="tag" id="round"></span><div class="progress" style="margin-top:15px"><div class="bar" id="bar"></div></div><p class="lead" id="count"></p><div id="body"></div></section>
+<section class="card hide score" id="result"></section>
+</div>
+<script>
+const Q=[
+["🕵️‍♀️ غرفة التحقيق","نشرت ريم صورة في حسابها على إحدى منصات التواصل الاجتماعي. ما نوع البصمة الرقمية التي تركتها؟",["غير نشطة","نشطة"],1,"لأنها تركت البيانات بإرادتها."],
+["🕵️‍♀️ غرفة التحقيق","دخلت سارة موقعًا إلكترونيًا، فثبّت الموقع ملفات تعريف الارتباط على جهازها دون معرفتها. ما نوع البصمة؟",["نشطة","غير نشطة"],1,"لأنها تُركت دون قصد أو دون معرفة المستخدم."],
+["🕵️‍♀️ غرفة التحقيق","عبأت نورة نموذجًا عبر الإنترنت للاشتراك في خدمة. ما نوع بصمتها؟",["نشطة","غير نشطة"],0,"تعبئة النموذج عمل قامت به بإرادتها."],
+["🕵️‍♀️ غرفة التحقيق","استخدم أحد التطبيقات بيانات الموقع الجغرافي للمستخدمة دون أن تقصد ترك هذه البيانات. ما النوع؟",["نشطة","غير نشطة"],1,"هذا مثال على البصمة غير النشطة."],
+["🔎 ملف الآثار الرقمية","كتبت الطالبة تعليقًا على مقطع فيديو. كيف يُصنف هذا الأثر؟",["مقصود ومرئي","غير مقصود وغير مرئي"],0,"التعليق من الآثار المقصودة والمرئية."],
+["🔎 ملف الآثار الرقمية","احتفظ أحد المواقع بسجل الصفحات التي زارتها الطالبة. ما نوع الأثر؟",["مقصود ومرئي","غير مقصود وغير مرئي"],1,"سجلات زيارة المواقع من الآثار غير المقصودة وغير المرئية."],
+["🔎 ملف الآثار الرقمية","أرسلت الطالبة رسالة بريد إلكتروني. كيف يُصنف الأثر؟",["مقصود ومرئي","غير مقصود وغير مرئي"],0,"البريد الإلكتروني من الآثار المقصودة والمرئية."],
+["🔎 ملف الآثار الرقمية","تم تسجيل عمليات البحث التي أجرتها المستخدمة أثناء تصفح الإنترنت. ما النوع؟",["مقصود ومرئي","غير مقصود وغير مرئي"],1,"عمليات البحث المسجلة من الآثار غير المقصودة وغير المرئية."],
+["🧠 اربطي المفاهيم","أي عبارة توضح العلاقة بشكل صحيح؟",["البصمة الرقمية وآثار التعقب شيء واحد تمامًا","تتراكم آثار نشاطك عبر الإنترنت لتكوّن بصمتك الرقمية","البصمة الرقمية تتكون فقط من المنشورات","آثار التعقب لا ترتبط بالبصمة الرقمية"],1,"آثار النشاط تتراكم لتكوّن البصمة الرقمية."],
+["🔍 اكتشفي الخطأ","قالت طالبة: «إذا لم أنشر شيئًا في الإنترنت، فهذا يعني أنني لا أترك بصمة رقمية». ما الحكم؟",["العبارة صحيحة","العبارة غير صحيحة؛ فقد تترك بصمة غير نشطة دون قصد أو دون أن تعرف"],1,"قد يترك المستخدم بصمة غير نشطة دون قصد أو معرفة."],
+["🔐 ملف القضية النهائي","دخلت مها متجرًا إلكترونيًا، وبحثت عن حقيبة، ثم ضغطت إعجابًا على أحد المنتجات. أي مما يلي يُعد مثالًا واضحًا على أثر مقصود ومرئي؟",["سجل زيارة المتجر","سجل البحث","الإعجاب بالمنتج","البيانات التي جُمعت أثناء التصفح"],2,"الإعجاب فعل مقصود ومرئي."],
+["🚨 القضية الأخيرة","اشترت سارة منتجًا من متجر إلكتروني، وبعد عدة أيام لاحظت ظهور إعلانات لمنتجات مشابهة لما شاهدته سابقًا. أي تفسير هو الأدق؟",["الإعلانات ظهرت عشوائيًا ولا علاقة لها بنشاطها السابق","لأنها نشرت معلومات المنتج على حسابها","يمكن أن تكون بيانات تصفحها واهتماماتها قد أسهمت في تخصيص الإعلانات التي ظهرت لها","لأن شراء المنتجات لا يترك أي بصمة رقمية"],2,"قد تُستخدم بيانات ناتجة عن نشاط المستخدم واهتماماته لتقديم إعلانات مخصصة."]
+];
+let mode="",i=0,score=0,tries=0,locked=false;
+document.addEventListener("click",e=>{
+ let m=e.target.closest(".mode"); if(m){document.querySelectorAll(".mode").forEach(x=>x.classList.remove("sel"));m.classList.add("sel");mode=m.dataset.mode;document.getElementById("enter").disabled=false}
+ if(e.target.id==="enter") openLesson(); if(e.target.id==="investigate") start(); if(e.target.id==="next") next();
+ let o=e.target.closest(".opt");if(o&&o.dataset.k!==undefined) pick(+o.dataset.k,o);
+  if(e.target.id==="restart") location.reload();
+});
+function openLesson(){
+ document.getElementById("choose").classList.add("hide");
+ document.getElementById("lesson").classList.remove("hide");
+ let x=document.getElementById("modeExtra");
+ if(mode==="visual"){
+   x.innerHTML='<div class="rule">👁️ <b>خريطتك البصرية:</b><br>🟢 أنا أتركها بإرادتي ← نشطة<br>⚪ تُجمع دون قصد ← غير نشطة<br>👀 أكتبها أو أنشرها وأراها ← أثر مقصود ومرئي<br>🌫️ تُسجّل خلف الكواليس ← أثر غير مقصود وغير مرئي</div>';
+ }
+ if(mode==="audio"){
+   x.innerHTML='<div class="audioStory"><div class="audioHead"><h3>🎧 شاهدي واستمعي: البصمة الرقمية</h3><p>شاهدي الفيديو القصير، ثم انتقلي إلى غرفة التحقيق لتطبيق ما تعلّمتِه.</p></div><div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:18px;margin-top:14px;background:#000"><iframe src="https://www.youtube.com/embed/siB-movkQTs" title="البصمة الرقمية | Digital footprint" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>';
+ }
+ if(mode==="kinetic"){
+   x.innerHTML='<div class="info kinetic"><h3>🖐️ صنّفي الأدلة باللمس</h3><p>اضغطي بطاقة الموقف أولًا، ثم اضغطي التصنيف المناسب. لا يحتاج سحبًا وإفلاتًا.</p><div class="tapCards" id="tapCards"><button class="tapCard" data-kind="active">💬 نشرتُ تعليقًا بإرادتي</button><button class="tapCard" data-kind="passive">📍 سُجّل موقعي دون أن أقصد</button><button class="tapCard" data-kind="visible">❤️ ضغطتُ إعجابًا على منشور</button><button class="tapCard" data-kind="invisible">🔎 احتُفظ بسجل عمليات البحث</button></div><div class="catGrid"><button class="catBtn" data-accept="active">🟢 بصمة نشطة</button><button class="catBtn" data-accept="passive">⚪ بصمة غير نشطة</button><button class="catBtn" data-accept="visible">👀 أثر مقصود ومرئي</button><button class="catBtn" data-accept="invisible">🌫️ أثر غير مقصود وغير مرئي</button></div><div class="kinFeedback" id="kinFeedback">اختاري بطاقة للبدء 👆</div></div>';
+   initTapSort();
+ }
+ scrollTo(0,0)
+ const nav=document.createElement("div");nav.style.marginTop="18px";nav.innerHTML='<button id="investigate">🕵🏻‍♀️ انتقلي إلى غرفة التحقيق</button>';x.appendChild(nav);
+}
+let selectedTap=null;
+function initTapSort(){
+ document.querySelectorAll(".tapCard").forEach(el=>el.addEventListener("click",()=>{
+  if(el.classList.contains("done"))return;
+  document.querySelectorAll(".tapCard").forEach(x=>x.classList.remove("selected"));
+  selectedTap=el;el.classList.add("selected");document.getElementById("kinFeedback").textContent="الآن اختاري التصنيف المناسب 👇";
+ }));
+ document.querySelectorAll(".catBtn").forEach(btn=>btn.addEventListener("click",()=>{
+  let f=document.getElementById("kinFeedback");
+  if(!selectedTap){f.textContent="اختاري بطاقة الموقف أولًا 👆";return}
+  if(selectedTap.dataset.kind===btn.dataset.accept){
+    selectedTap.classList.remove("selected");selectedTap.classList.add("done");selectedTap.disabled=true;selectedTap=null;
+    f.textContent="✅ تصنيف صحيح!";
+    if(document.querySelectorAll(".tapCard.done").length===4)f.textContent="🏆 ممتاز! صنّفتِ الأدلة الأربعة بنجاح.";
+  }else{
+    btn.classList.remove("wrong");void btn.offsetWidth;btn.classList.add("wrong");f.textContent="🔎 ليست هنا، حاولي مرة أخرى.";
+  }
+ }));
+}
+function start(){document.getElementById("lesson").classList.add("hide");document.getElementById("quiz").classList.remove("hide");render();scrollTo(0,0)}
+function render(){locked=false;tries=0;let q=Q[i];document.getElementById("round").textContent=q[0];document.getElementById("bar").style.width=(i/Q.length*100)+"%";document.getElementById("count").textContent="القضية "+(i+1)+" من "+Q.length;document.getElementById("body").innerHTML='<div class="case"><div class="q">'+q[1]+'</div></div><div class="options">'+q[2].map((x,k)=>'<button class="opt" data-k="'+k+'">'+x+'</button>').join("")+'</div><div class="feedback" id="fb"></div><div class="center"><button class="btn hide" id="next">التالي ←</button></div>'}
+function pick(k,b){if(locked)return;let q=Q[i],fb=document.getElementById("fb");if(k===q[3]){locked=true;if(!tries)score++;b.classList.add("ok");let c=["✨ رائعة! التقطتِ الدليل","🎯 تحليل دقيق!","👏 أحسنتِ يا محققة","🌟 ممتاز! فهمك واضح","🔍 استنتاج موفق","🏆 خطوة أقرب لإغلاق القضية"];fb.innerHTML=c[i%c.length]+"<br>"+q[4];document.getElementById("next").classList.remove("hide")}else{tries++;b.classList.add("bad");b.disabled=true;if(tries<2)fb.innerHTML="💡 الدليل لا يقود لهذه الإجابة. راجعي الكلمة المفتاحية وحاولي مرة أخرى.";else{locked=true;document.querySelectorAll(".opt")[q[3]].classList.add("ok");fb.innerHTML="📌 الإجابة الصحيحة: <b>"+q[2][q[3]]+"</b><br>"+q[4];document.getElementById("next").classList.remove("hide")}}}
+function next(){i++;if(i<Q.length){render();scrollTo(0,0)}else finish()}
+function finish(){document.getElementById("quiz").classList.add("hide");document.getElementById("result").classList.remove("hide");let p=Math.round(score/Q.length*100),t=score===12?"🏆 محققة رقمية محترفة!":score>=10?"🌟 أداء رائع في التحقيق الرقمي":score>=8?"👏 أحسنتِ، بقيت مراجعة بسيطة":"💪 راجعي الأدلة ثم أعيدي فتح القضية";document.getElementById("result").innerHTML="<h2>"+t+"</h2><div class=num>"+score+" / 12</div><p class=lead>نسبة الإتقان: <b>"+p+"%</b></p><button class=btn id=restart>↻ أعيدي النشاط</button>";scrollTo(0,0)}
+
+document.addEventListener("click", function(e){
+  const modeBtn=e.target.closest("[data-mode]");
+  if(modeBtn){
+    mode=modeBtn.dataset.mode;
+    openLesson();
+    return;
+  }
+
+  if(e.target.closest("#investigate")){
+    i=0; score=0; locked=false; tries=0;
+    start();
+    return;
+  }
+
+  const opt=e.target.closest(".opt");
+  if(opt){
+    pick(Number(opt.dataset.k),opt);
+    return;
+  }
+
+  if(e.target.closest("#next")){
+    next();
+    return;
+  }
+
+  if(e.target.closest("#restart")){
+    location.reload();
+    return;
+  }
+});
+
+</script></body></html>
